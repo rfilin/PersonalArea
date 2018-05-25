@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape>
+      <gradient android:startColor="#004220" android:endColor="#7DFF00"
+        android:angle="270" />
+    </shape>
+  </item>
+  <item>
+    <shape>
+      <gradient android:startColor="#99006B33"
+        android:endColor="#996B897A" android:angle="270" />
+    </shape>
+  </item>
+</layer-list>
+<!-- $Source: /cvsopen/waterman3/foreman_mobile/android/ForemanMobile/res/drawable-mdpi/d_back_para_db_comment.xml,v $ -->
+<!-- $Id: d_back_para_db_comment.xml,v 1.1 2013/02/13 18:32:49 gea Exp $ -->

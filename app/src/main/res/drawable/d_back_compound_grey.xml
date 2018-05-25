@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape>
+      <gradient
+        android:startColor="#CCCCCC"
+        android:endColor="#303035"
+        android:angle="270"/>
+      <corners android:radius="4dip"/>
+    </shape>
+  </item>
+  <item android:bottom="15dip">
+    <shape>
+      <solid android:color="#50555555"/>
+      <corners
+        android:bottomRightRadius="4dip"
+        android:bottomLeftRadius="4dip"
+        android:topLeftRadius="4dip"
+        android:topRightRadius="4dip"/>
+    </shape>
+  </item>
+  <item>
+    <shape>
+      <solid android:color="#00000000"/>
+      <corners android:radius="4dip"/>
+      <stroke
+        android:width="1dip"
+        android:color="#ACACAC"/>
+    </shape>
+  </item>
+</layer-list>
+<!-- $Source: /cvsopen/waterman3/foreman_mobile/android/ForemanMobile/res/drawable-mdpi/d_back_compound_grey.xml,v $ -->
+<!-- $Id: d_back_compound_grey.xml,v 1.2 2013/10/16 21:33:41 gea Exp $ -->

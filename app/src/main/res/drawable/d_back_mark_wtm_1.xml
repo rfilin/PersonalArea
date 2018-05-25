@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape>
+      <gradient android:startColor="#185A52" android:endColor="#5AA47B"
+        android:angle="270" />
+      <corners android:radius="3dip" />
+      <stroke android:width="1dip" android:color="#88185A52" />
+    </shape>
+  </item>
+</layer-list>
+<!-- $Source: /cvsopen/waterman3/foreman_mobile/android/ForemanMobile/res/drawable-mdpi/d_back_mark_wtm_1.xml,v $ -->
+<!-- $Id: d_back_mark_wtm_1.xml,v 1.2 2013/02/13 18:36:40 gea Exp $ -->
