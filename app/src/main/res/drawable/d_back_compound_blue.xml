@@ -4,14 +4,14 @@
     <shape>
       <gradient
         android:startColor="#200000"
-        android:endColor="#900000"
+        android:endColor="#393b70"
         android:angle="270"/>
       <corners android:radius="4dip"/>
     </shape>
   </item>
   <item android:bottom="15dip">
     <shape>
-      <solid android:color="#44900000"/>
+      <solid android:color="#44000790"/>
       <corners
         android:bottomRightRadius="4dip"
         android:bottomLeftRadius="4dip"
