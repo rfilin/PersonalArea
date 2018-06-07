@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "717771146778",
+    "firebase_url": "https://personalarea-omsk.firebaseio.com",
+    "project_id": "personalarea-omsk",
+    "storage_bucket": "personalarea-omsk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717771146778:android:41c71b46f814c42c",
+        "android_client_info": {
+          "package_name": "personalarea.ru.main"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717771146778-4r4kpflnvj06tiusasmimilmvmm8c8ev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "personalarea.ru.main",
+            "certificate_hash": "b4a5f2626f48eeb8a8926b31d6456504b85e748e"
+          }
+        },
+        {
+          "client_id": "717771146778-ib5j6imjjptv745i1b75a3gsn9ae6f8a.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "717771146778-ib5j6imjjptv745i1b75a3gsn9ae6f8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUZEDG2qITuoow7pK0JD28gDTVXC0Xecc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717771146778-ib5j6imjjptv745i1b75a3gsn9ae6f8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

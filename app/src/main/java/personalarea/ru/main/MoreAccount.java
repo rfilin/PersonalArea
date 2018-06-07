@@ -1,13 +1,13 @@
-package personalarea.ru.personalarea;
+package personalarea.ru.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import personalarea.ru.personalarea.R;
 
 public class MoreAccount extends AppCompatActivity {
 

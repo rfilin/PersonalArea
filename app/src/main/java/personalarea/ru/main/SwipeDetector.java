@@ -1,4 +1,4 @@
-package personalarea.ru.personalarea;
+package personalarea.ru.main;
 
 import android.view.MotionEvent;
 
