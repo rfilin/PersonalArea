@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "717771146778-orad6qa2k8ahjhhgoinc59teqvp4i595.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "personalarea.ru.main",
+            "certificate_hash": "d209e536c5111bda28ab7fb37be4c460fbafc55f"
+          }
+        },
+        {
           "client_id": "717771146778-4r4kpflnvj06tiusasmimilmvmm8c8ev.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

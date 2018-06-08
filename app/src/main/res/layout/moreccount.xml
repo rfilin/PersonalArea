@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="personalarea.ru.personalarea.personalarea.ru.Main.MoreAccount"
+    tools:context="personalarea.ru.main.MoreAccount"
     android:id="@+id/scrollView">
 
     <TextView

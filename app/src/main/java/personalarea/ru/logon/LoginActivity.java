@@ -19,7 +19,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -28,6 +30,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +38,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import personalarea.ru.main.SwipeDetector;
 import personalarea.ru.personalarea.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -42,17 +46,10 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     private static final int REQUEST_READ_CONTACTS = 0;
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
+
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -61,6 +58,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private View mProgressView;
     private View mLoginFormView;
     private FirebaseAuth mAuth;
+    private GestureDetector gestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +90,17 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-
         mAuth = FirebaseAuth.getInstance();
+        gestureDetector = initGestureDetector();
+        mLoginFormView.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
+        mLoginFormView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+            }
+        });
     }
 
     @Override
@@ -287,10 +294,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         int IS_PRIMARY = 1;
     }
 
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mEmail;
@@ -347,23 +350,44 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private void updateUI(FirebaseUser user) {
 
         if (user != null) {
-            //mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
-            //        user.getEmail(), user.isEmailVerified()));
-            //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-
-            findViewById(R.id.email).setVisibility(View.GONE);
-            findViewById(R.id.password).setVisibility(View.GONE);
-            findViewById(R.id.email_sign_in_button).setVisibility(View.VISIBLE);
-
+            showProgress(true);
+            mEmailView.setText(user.getEmail());
+            mPasswordView.setVisibility(View.INVISIBLE);
             //findViewById(R.id.verify_email_button).setEnabled(!user.isEmailVerified());
         } else {
-            //mStatusTextView.setText(R.string.signed_out);
-            //mDetailTextView.setText(null);
-
+            showProgress(true);
             findViewById(R.id.email).setVisibility(View.VISIBLE);
             findViewById(R.id.password).setVisibility(View.VISIBLE);
-            findViewById(R.id.email_sign_in_button).setVisibility(View.GONE);
+            findViewById(R.id.email_sign_in_button).setVisibility(View.VISIBLE);
         }
+        showProgress(false);
+    }
+    private GestureDetector initGestureDetector() {
+        return new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+
+            private SwipeDetector detector = new SwipeDetector();
+
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+                                   float velocityY) {
+                try {
+                    if (detector.isSwipeDown(e1, e2, velocityY)) {
+                        return false;
+                    } else if (detector.isSwipeUp(e1, e2, velocityY)) {
+                        showToast("Up Swipe");
+                    }else if (detector.isSwipeLeft(e1, e2, velocityX)) {
+                        showToast("Left Swipe");
+                    } else if (detector.isSwipeRight(e1, e2, velocityX)) {
+                        //showToast("Right Swipe");
+                        finish();
+                    }
+                } catch (Exception e) {} //for now, ignore
+                return false;
+            }
+
+            private void showToast(String phrase){
+                Toast.makeText(getApplicationContext(), phrase, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 

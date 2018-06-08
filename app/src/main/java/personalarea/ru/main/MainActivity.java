@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import personalarea.ru.logon.LoginActivity;
 import personalarea.ru.personalarea.R;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        Intent intent = new Intent(MainActivity.this, MoreAccount.class);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 
         startActivity(intent);
     }
